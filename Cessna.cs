@@ -1,6 +1,6 @@
 namespace Garage
 {
-    public class Cessna : Vehicle
+    public class Cessna : Vehicle, IGasVehicle
     {
         public double FuelCapacity { get; set; }
 
@@ -24,6 +24,13 @@ namespace Garage
 
         public void RefuelTank()
         {
-            Console.WriteLine($"Your Cessna is now refueled to {this.FuelCapacity}% capacity.");         }
+            this.FuelCapacity = 100;
+            Console.WriteLine($"Your {MainColor} Cessna is now refueled to {this.FuelCapacity}% capacity.");         
+        }
+
+        public void CurrentTankPercentage()
+        {
+            Console.WriteLine($"The {this.MainColor} Cessna's fuel tank is currently at {this.FuelCapacity}%.");
+        }
     }
 }

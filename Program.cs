@@ -1,35 +1,67 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Garage {
-    class Program {
-        static void Main (string[] args) {
-            Zero fxs = new Zero ();
-            Tesla modelS = new Tesla ();
-            Ram truck = new Ram ();
-            Cessna wtf = new Cessna ();
+namespace Garage
+{
+    class Program
+    {
+        static void Main (string[] args)
+        {
 
-            fxs.MainColor = "green";
-            modelS.MainColor = "bright red and orange";
-            truck.MainColor = "white";
-            wtf.MainColor = "pink camo";
+            Zero fxs = new Zero();
+            Zero fx = new Zero();
+            Tesla modelS = new Tesla();
+            fxs.MainColor = "Green";
+            fx.MainColor = "Blue";
+            modelS.MainColor = "Red and Orange";
 
-            fxs.Drive();
-            fxs.Turn("right");
-            fxs.Stop();
-            Console.WriteLine();
-            modelS.Drive();
-            modelS.Turn("left");
-            modelS.Stop();
-            Console.WriteLine();
-            truck.Drive();
-            truck.Turn("right");
-            truck.Stop();
-            Console.WriteLine();
-            wtf.Drive();
-            wtf.Turn("left");
-            wtf.Stop();
+            List<IElectricVehicle> electricVehicles = new List<IElectricVehicle>() {
+                fx, fxs, modelS
+            };
 
+            Console.WriteLine("Electric Vehicles");
+            foreach(IElectricVehicle ev in electricVehicles)
+            {
+                ev.CurrentChargePercentage();            }
+
+            foreach(IElectricVehicle ev in electricVehicles)
+            {
+                // This should charge the vehicle to 100%
+                ev.ChargeBattery();
+            }
+
+            foreach(IElectricVehicle ev in electricVehicles)
+            {
+                ev.CurrentChargePercentage();
+            }
+
+            /***********************************************/
+
+            Ram ram = new Ram ();
+            Cessna cessna150 = new Cessna ();
+            ram.MainColor = "Purple";
+            cessna150.MainColor = "Fuchsia";
+
+            List<IGasVehicle> gasVehicles = new List<IGasVehicle>() {
+                ram, cessna150
+            };
+
+            Console.WriteLine("Gas Vehicles");
+            foreach(IGasVehicle gv in gasVehicles)
+            {
+                gv.CurrentTankPercentage();
+            }
+
+            foreach(IGasVehicle gv in gasVehicles)
+            {
+                // This should completely refuel the gas tank
+                gv.RefuelTank();
+            }
+
+            foreach(IGasVehicle gv in gasVehicles)
+            {
+                gv.CurrentTankPercentage();
+            }
         }
     }
 }

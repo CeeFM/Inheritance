@@ -1,12 +1,13 @@
 namespace Garage
 {
-    public class Zero : Vehicle
+    public class Zero : Vehicle, IElectricVehicle
     {
         public double BatteryKWh { get; set; }
 
         public void ChargeBattery()
         {
-            Console.WriteLine($"Your Zero is now charged to {this.BatteryKWh}KWh");        
+            this.BatteryKWh = 100;
+            Console.WriteLine($"Your {MainColor} Zero is now charged to {this.BatteryKWh}KWh");        
         }
 
         public override void Drive()
@@ -22,6 +23,10 @@ namespace Garage
         public override void Stop()
         {
             Console.WriteLine($"The {this.MainColor} Zero stopped pretty good I guess. Wasn't spectacular or anything. Pretty basic.");
+        } 
+        public void CurrentChargePercentage()
+        {
+            Console.WriteLine($"The {this.MainColor} Zero's battery charge is currently at {this.BatteryKWh}%.");
         }        
     }
 }
