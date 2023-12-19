@@ -12,9 +12,12 @@ namespace Garage
             Zero fx = new Zero();
             Tesla modelS = new Tesla();
             fxs.MainColor = "Green";
+            fxs.BatteryKWh = 14;
             fx.MainColor = "Blue";
+            fx.BatteryKWh = 23;
             modelS.MainColor = "Red and Orange";
-
+            modelS.BatteryKWh = 1;
+            
             List<IElectricVehicle> electricVehicles = new List<IElectricVehicle>() {
                 fx, fxs, modelS
             };
@@ -45,7 +48,9 @@ namespace Garage
             Ram ram = new Ram ();
             Cessna cessna150 = new Cessna ();
             ram.MainColor = "Purple";
+            ram.FuelCapacity = 23;
             cessna150.MainColor = "Fuchsia";
+            cessna150.FuelCapacity = 31;
 
             List<IGasVehicle> gasVehicles = new List<IGasVehicle>() {
                 ram, cessna150
