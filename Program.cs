@@ -20,20 +20,25 @@ namespace Garage
             };
 
             Console.WriteLine("Electric Vehicles");
+            Console.WriteLine("=================");
+            Console.WriteLine();
             foreach(IElectricVehicle ev in electricVehicles)
             {
                 ev.CurrentChargePercentage();            }
+            Console.WriteLine();
 
             foreach(IElectricVehicle ev in electricVehicles)
             {
                 // This should charge the vehicle to 100%
                 ev.ChargeBattery();
             }
+            Console.WriteLine();
 
             foreach(IElectricVehicle ev in electricVehicles)
             {
                 ev.CurrentChargePercentage();
             }
+            Console.WriteLine();
 
             /***********************************************/
 
@@ -47,17 +52,20 @@ namespace Garage
             };
 
             Console.WriteLine("Gas Vehicles");
+            Console.WriteLine("=================");
+            Console.WriteLine();
             foreach(IGasVehicle gv in gasVehicles)
             {
                 gv.CurrentTankPercentage();
             }
+            Console.WriteLine();            
 
             foreach(IGasVehicle gv in gasVehicles)
             {
                 // This should completely refuel the gas tank
                 gv.RefuelTank();
             }
-
+            Console.WriteLine();
             foreach(IGasVehicle gv in gasVehicles)
             {
                 gv.CurrentTankPercentage();
